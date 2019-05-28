@@ -1,0 +1,151 @@
+let mapleader=' '
+
+set nowrap
+set sidescroll=40
+set noback
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmode
+set nocompatible
+set backspace=indent,eol,start
+set ruler
+set relativenumber
+set number
+set scrolloff=3
+set history=100000
+set clipboard+=unnamed
+set surround
+set so=5
+set autoread
+set winaltkeys=no
+set showmatch
+set matchtime=2
+set cmdheight=2
+set multiple-cursors
+
+inoremap <esc> <nop>
+
+inoremap <up> <nop>
+nnoremap <up> <nop>
+inoremap <down> <nop>
+nnoremap <down> <nop>
+inoremap <left> <nop>
+nnoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap <right> <nop>
+
+
+nnoremap <Leader>q  :q<CR>
+nnoremap <Leader>Q  :qa!<CR>
+
+
+inoremap jj <Esc>
+inoremap jk <Esc>
+inoremap kj <Esc>
+inoremap kk <Esc>
+
+vnoremap v <Esc>
+
+nnoremap L $
+vnoremap L $
+nnoremap H ^
+vnoremap H ^
+nnoremap Y v$y
+vnoremap Y $y
+
+
+nnoremap <s-j> :action EditorJoinLines<CR>
+nnoremap <Bs> :action EditorBackSpace<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+
+nnoremap ga :action GotoAction<CR>
+nnoremap gt :action GotoClass<CR>
+nnoremap gf :action GotoFile<CR>
+nnoremap gs :action GotoSymbol<CR>
+
+nnoremap <c-up> :action EditorScrollUp<CR>
+nnoremap <c-down> :action EditorScrollDown<CR>
+
+nnoremap <s-left> :action EditorLeftWithSelection<CR>
+nnoremap <s-right> :action EditorRightWithSelection<CR>
+nnoremap <s-up> :action EditorUpWithSelection<CR>
+nnoremap <s-down> :action EditorDownWithSelection<CR>
+
+inoremap <s-left> <C-O>:action EditorLeftWithSelection<CR>
+inoremap <s-right> <C-O>:action EditorRightWithSelection<CR>
+inoremap <s-up> <C-O>:action EditorUpWithSelection<CR>
+inoremap <s-down> <C-O>:action EditorDownWithSelection<CR>
+
+" enter newlines
+nnoremap <CR> :action EditorEnter<CR>
+inoremap <CR> <C-o>:action EditorEnter<CR>
+
+nnoremap / :action Find<cr>
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
+
+nnoremap <Leader>/ /
+
+nnoremap U :action $Redo<CR>
+
+" Reload .ideavimrc
+nnoremap <Leader>vs :source ~/.ideavimrc<CR>
+
+" have x (removes single character) not go into the default registry
+nnoremap x "_x
+" Make X an operator that removes without placing text in the default registry
+nmap X "_d
+nmap XX "_dd
+vmap X "_d
+vmap x "_d
+
+nnoremap c "xc
+xnoremap c "xc
+
+nnoremap d "_d
+vnoremap d "_d
+vnoremap D "_D
+nnoremap D "_D
+nnoremap <Del> "_x
+
+" Center screen when jumping to next match
+nnoremap n nzz
+nnoremap N Nzz
+vnoremap n nzz
+vnoremap N Nzz
+noremap # #zz
+noremap * *zz
+noremap w wzz
+noremap W Wzz
+noremap e ezz
+noremap E Ezz
+noremap b bzz
+noremap B Bzz
+noremap H Hzz
+noremap L Lzz
+noremap 0 0zz
+noremap $ $zz
+noremap ^ ^zz
+noremap j jzz
+noremap k kzz
+noremap G Gzz
+noremap u uzz
+noremap ( (zz
+noremap ) )zz
+noremap { {zz
+noremap } }zz
+noremap [{ [{zz
+noremap ]} ]}zz
+noremap gd gdzz
+
+
+nnoremap <leader>; :action AceAction <CR>
+
+nnoremap <a-h> gT
+nnoremap <a-l> gt
+
+nnoremap <a-j> :action Back <CR>
+nnoremap <a-k> :action Resume <CR>

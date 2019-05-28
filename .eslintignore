@@ -1,0 +1,6 @@
+**/*.min.js
+**/jquery.js
+**/app.js
+
+
+**/extensions**
