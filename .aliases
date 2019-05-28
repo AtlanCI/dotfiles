@@ -1,0 +1,71 @@
+alias shadow='/etc/init.d/shadowsocks'
+alias vi='vim'
+
+alias ls='ls --color=auto'
+alias ll="ls --color -al"
+alias grep='grep --color=auto'
+
+# 查看当前时间
+alias now='date "+%Y-%m-%d %H:%M:%S"'
+
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
+
+# 自动创建父目录
+alias mkdir='mkdir -pv'
+
+# 解压任何文件
+extract() {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+# 查看文件/目录大小
+alias size='f(){ du -sh $1* | sort -hr; }; f'
+
+# 开放端口
+alias portopen='f(){ /sbin/iptables -I INPUT -p tcp --dport $1 -j ACCEPT; }; f'
+# 关闭端口
+alias portclose='f(){ /sbin/iptables -I INPUT -p tcp --dport $1 -j DROP; }; f'
+
+# 解压
+alias untar='tar xvf '
+
+alias -s html='vim'   # 在命令行直接输入后缀为 html 的文件名，会在 Vim 中打开
+alias -s rb='vim'     # 在命令行直接输入 ruby 文件，会在 Vim 中打开
+alias -s py='vim'      # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
+alias -s js='vim'
+alias -s md='vim'
+alias -s mjs='vim'
+alias -s css='vim'
+alias -s c='vim'
+alias -s java='vim'
+alias -s txt='vim'
+alias -s gz='tar -xzvf' # 在命令行直接输入后缀为 gz 的文件名，会自动解压打开
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
+alias -s json='vim'
+alias -s go='vim'
+
+alias cat=ccat
+alias man=tldr
+eval "$(thefuck --alias)"
