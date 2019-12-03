@@ -1,0 +1,136 @@
+hotkeys:
+  profile: {}
+  shell: {}
+  shell-selector:
+    - - Ctrl-Shift-T
+  settings:
+    - - Ctrl-Shift-S
+  ssh:
+    - - Ctrl-S
+  copy:
+    - - Ctrl-C
+  paste:
+    - - Ctrl-V
+  zoom-in:
+    - - Ctrl-=
+  zoom-out:
+    - - Ctrl--
+  new-tab:
+    - - Ctrl-T
+  search:
+    - - Ctrl-F
+  rename-tab:
+    - - F2
+  split-right:
+    - - Alt-Right
+  split-bottom:
+    - - Alt-Down
+  pane-nav-up:
+    - - Shift-Up
+  pane-nav-down:
+    - - Shift-Down
+  pane-nav-left:
+    - - Shift-Left
+  pane-nav-right:
+    - - Shift-Right
+  close-pane:
+    - - Ctrl-W
+  split-left:
+    - - Alt-Left
+  split-top:
+    - - Alt-Up
+  next-tab:
+    - - Ctrl-Tab
+  previous-tab:
+    - - Ctrl-Shift-Tab
+  close-tab:
+    - - Ctrl-Shift-W
+  new-window:
+    - - Ctrl-N
+  tab-1:
+    - - Ctrl-1
+  tab-2:
+    - - Ctrl-2
+  tab-3:
+    - - Ctrl-3
+  tab-4:
+    - - Ctrl-4
+  tab-5:
+    - - Ctrl-5
+  tab-6:
+    - - Ctrl-6
+  tab-7:
+    - - Ctrl-7
+  tab-8:
+    - - Ctrl-8
+  tab-9:
+    - - Ctrl-9
+  tab-10:
+    - - Ctrl-0
+  toggle-window:
+    - - Ctrl+Space
+    - - Alt-Q
+ssh: {}
+terminal:
+  colorScheme:
+    name: Dracula
+    foreground: '#f8f8f2'
+    background: '#1e1f29'
+    cursor: '#bbbbbb'
+    colors:
+      - '#000000'
+      - '#ff5555'
+      - '#50fa7b'
+      - '#f1fa8c'
+      - '#bd93f9'
+      - '#ff79c6'
+      - '#8be9fd'
+      - '#bbbbbb'
+      - '#555555'
+      - '#ff5555'
+      - '#50fa7b'
+      - '#f1fa8c'
+      - '#bd93f9'
+      - '#ff79c6'
+      - '#8be9fd'
+      - '#ffffff'
+  font: Fira Code Regular
+  fontSize: 16
+  ligatures: true
+  cursor: block
+  environment: {}
+  profile: git-bash
+  workingDirectory: 'D:\Projects'
+  bracketedPaste: false
+  copyOnSelect: true
+  altIsMeta: true
+  profiles: []
+  cursorBlink: true
+  frontend: xterm
+  bell: audible
+  autoOpen: false
+  background: theme
+appearance:
+  vibrancy: true
+  frame: thin
+  theme: Altair
+  vibrancyType: blur
+  opacity: 1
+enableAnalytics: false
+enableWelcomeTab: false
+qc:
+  cmds:
+    - name: name
+      text: SimonMa
+      appendCR: true
+      group: person
+    - name: email
+      text: simon@tomotoes.com
+      appendCR: true
+      group: person
+titleControl:
+  replacePattern: \cwd
+pluginBlacklist:
+  - quick-cmds
+  - title-control
+enableAutomaticUpdates: true
