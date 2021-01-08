@@ -71,50 +71,18 @@ set noerrorbells
 " 允许退格键在以下场景下正常执行
 set backspace=indent,eol,start
 
-" ==================================================
-" 插件篇
-" ==================================================
-" {action}s{surround symbol} {target symbol}
-set surround
-
-" {action}ae -> {action}entire-content
-set textobj-entire
-
-" auto switch input model
-set keep-english-in-normal
 
 " ==================================================
 " 映射篇
 " ==================================================
 
-" 禁用 esc 键
-" inoremap <esc> <nop>
-
-" 禁用方向键
-" nnoremap <up> <nop>
-" nnoremap <down> <nop>
-" nnoremap <left> <nop>
-" nnoremap <right> <nop>
-
-" jj 进入 insert model
-inoremap jj <Esc>
-
 " L 移动到行尾
 nnoremap L $
 vnoremap L $
+
 " H 移动到行首
 nnoremap H ^
 vnoremap H ^
-
-" 设置 x c d action 的寄存器不与系统进行交互
-nnoremap x "xx
-xnoremap x "xx
-nnoremap c "cc
-xnoremap c "cc
-nnoremap d "dd
-vnoremap d "dd
-vnoremap D "DD
-nnoremap D "DD
 
 " 移动时 自动定位到屏幕中心
 nnoremap n nzz
@@ -123,6 +91,12 @@ vnoremap n nzz
 vnoremap N Nzz
 noremap # #zz
 noremap * *zz
+noremap w wzz
+noremap W Wzz
+noremap e ezz
+noremap E Ezz
+noremap b bzz
+noremap B Bzz
 noremap H Hzz
 noremap L Lzz
 noremap 0 0zz
@@ -138,84 +112,3 @@ noremap { {zz
 noremap } }zz
 noremap [{ [{zz
 noremap ]} ]}zz
-
-" 使用 Ctrl + up/down 可以滚动屏幕
-" nnoremap <c-up> :action EditorScrollUp<CR>
-" nnoremap <c-down> :action EditorScrollDown<CR>
-
-" ==================================================
-" Leader 键篇
-" ==================================================
-
-let mapleader=' '
-
-" 多窗口操作
-" 清除窗口
-nnoremap <Leader>wq <C-W>c
-" 光标窗口切换
-nnoremap <Leader>ww <C-W>w
-nnoremap <Leader>wj <C-W>j
-nnoremap <Leader>wk <C-W>k
-nnoremap <Leader>wh <C-W>h
-nnoremap <Leader>wl <C-W>l
-" 纵向新增窗口
-nnoremap <Leader>ws <C-W>s
-" 横向新增窗口
-nnoremap <Leader>we <C-W>v
-
-" jk 前进后退
-nnoremap <leader>j :action Back<cr>
-nnoremap <leader>k :action Forward<cr>
-" hl 错误定位
-nnoremap <leader>h :action GotoPreviousError<cr>
-nnoremap <leader>l :action GotoNextError<cr>
-
-" 最近文件, 最近位置 列表显示
-nnoremap <leader>e :action RecentFiles<cr>
-nnoremap <leader>E :action RecentLocations<cr>
-
-" 书签操作
-nnoremap <leader>q :action ToggleBookmark<CR>
-nnoremap <leader>Q :action ShowBookmarks<CR>
-
-" 注释与重命名
-nnoremap <leader>r :action CommentByLineComment<cr>
-nnoremap <leader>R :action RenameElement<cr>
-
-" 跳转到定位
-nnoremap <leader>d :action GotoDeclaration<cr>
-
-" 查看使用案例
-nnoremap <leader>D :action FindUsages<cr>
-
-" 展示错误信息
-nnoremap <leader>a :action ShowErrorDescription<CR>
-
-" 展示文件内的大纲
-nnoremap <leader>o :action FileStructurePopup<CR>
-
-" 使用 ESLint 格式化代码
-nnoremap <leader>t :action Javascript.Linters.EsLint.Fix<CR>
-" 格式化代码
-nnoremap <leader>T :action ReformatCode<CR>
-
-" 展示文件路径 可以快速打 Finder 中打开
-nnoremap <Leader>F :action ShowFilePath<CR>
-
-" 切换断点
-nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
-
-" Ace jump
-nnoremap <leader>f :action AceAction <CR>
-
-" 聚焦项目栏
-nnoremap <Leader>\ :action SelectInProjectView<CR>
-
-" 显示隐藏 Git Panel
-nnoremap <Leader>g :action ActivateVersionControlToolWindow<CR>
-
-" 应用建议
-nnoremap <Leader>s :action ShowIntentionActions<CR>
-
-" Reload .ideavimrc
-nnoremap <Leader>S :source ~/.ideavimrc<CR>
