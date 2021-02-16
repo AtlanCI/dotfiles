@@ -19,7 +19,7 @@ set sidescrolloff=15
 set noback
 
 " 搜索时，高亮显示匹配结果
-set hlsearch
+" set hlsearch
 " 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果
 set incsearch
 " 搜索时忽略大小写 
@@ -91,57 +91,50 @@ set keep-english-in-normal
 " inoremap <esc> <nop>
 
 " 禁用方向键
-" nnoremap <up> <nop>
-" nnoremap <down> <nop>
-" nnoremap <left> <nop>
-" nnoremap <right> <nop>
+"noremap <up> <nop>
+"noremap <down> <nop>
+"noremap <left> <nop>
+"noremap <right> <nop>
 
-" jj 进入 insert model
+" j k 映射成 gj gk
+nnoremap k gk
+nnoremap j gj
+
+" 进入 insert model 快捷键
+inoremap jk <Esc>
 inoremap jj <Esc>
 
 " L 移动到行尾
-nnoremap L $
-vnoremap L $
+noremap L $
 " H 移动到行首
-nnoremap H ^
-vnoremap H ^
+noremap H ^
 
 " 设置 x c d action 的寄存器不与系统进行交互
 nnoremap x "xx
 xnoremap x "xx
+nnoremap X "xX
+xnoremap X "xX
 nnoremap c "cc
 xnoremap c "cc
+nnoremap C "cC
+xnoremap C "cC
 nnoremap d "dd
 vnoremap d "dd
-vnoremap D "DD
-nnoremap D "DD
+vnoremap D "dD
+nnoremap D "dD
 
 " 移动时 自动定位到屏幕中心
-nnoremap n nzz
-nnoremap N Nzz
-vnoremap n nzz
-vnoremap N Nzz
-noremap # #zz
-noremap * *zz
-noremap H Hzz
-noremap L Lzz
-noremap 0 0zz
-noremap $ $zz
-noremap ^ ^zz
 noremap j jzz
 noremap k kzz
 noremap G Gzz
-noremap u uzz
-noremap ( (zz
-noremap ) )zz
 noremap { {zz
 noremap } }zz
 noremap [{ [{zz
 noremap ]} ]}zz
 
-" 使用 Ctrl + up/down 可以滚动屏幕
-" nnoremap <c-up> :action EditorScrollUp<CR>
-" nnoremap <c-down> :action EditorScrollDown<CR>
+" 使用 Ctrl + j/k 可以滚动屏幕
+nnoremap <C-K> :action EditorScrollUp<CR>
+nnoremap <C-J> :action EditorScrollDown<CR>
 
 " ==================================================
 " Leader 键篇
@@ -163,41 +156,48 @@ nnoremap <Leader>ws <C-W>s
 " 横向新增窗口
 nnoremap <Leader>we <C-W>v
 
-" jk 前进后退
-nnoremap <leader>j :action Back<cr>
-nnoremap <leader>k :action Forward<cr>
-" hl 错误定位
-nnoremap <leader>h :action GotoPreviousError<cr>
-nnoremap <leader>l :action GotoNextError<cr>
+" v 列选择
+nnoremap <Leader>v <C-V>
+
+" hl 前进后退
+nnoremap <Leader>h :action Back<CR>
+nnoremap <Leader>l :action Forward<CR>
+
+" H 替换文本
+nnoremap <Leader>H :action Replace<CR>
+
+" jk 错误定位
+nnoremap <Leader>k :action GotoPreviousError<CR>
+nnoremap <Leader>j :action GotoNextError<CR>
 
 " 最近文件, 最近位置 列表显示
-nnoremap <leader>e :action RecentFiles<cr>
-nnoremap <leader>E :action RecentLocations<cr>
+nnoremap <Leader>e :action RecentFiles<CR>
+nnoremap <Leader>E :action RecentLocations<CR>
 
 " 书签操作
-nnoremap <leader>q :action ToggleBookmark<CR>
-nnoremap <leader>Q :action ShowBookmarks<CR>
+nnoremap <Leader>q :action ToggleBookmark<CR>
+nnoremap <Leader>Q :action ShowBookmarks<CR>
 
 " 注释与重命名
-nnoremap <leader>r :action CommentByLineComment<cr>
-nnoremap <leader>R :action RenameElement<cr>
+nnoremap <Leader>r :action CommentByLineComment<CR>
+nnoremap <Leader>R :action RenameElement<CR>
 
 " 跳转到定位
-nnoremap <leader>d :action GotoDeclaration<cr>
+nnoremap <Leader>d :action GotoDeclaration<CR>
 
 " 查看使用案例
-nnoremap <leader>D :action FindUsages<cr>
+nnoremap <Leader>D :action FindUsages<CR>
 
 " 展示错误信息
-nnoremap <leader>a :action ShowErrorDescription<CR>
+nnoremap <Leader>a :action ShowErrorDescription<CR>
 
 " 展示文件内的大纲
-nnoremap <leader>o :action FileStructurePopup<CR>
+nnoremap <Leader>o :action FileStructurePopup<CR>
 
 " 使用 ESLint 格式化代码
-nnoremap <leader>t :action Javascript.Linters.EsLint.Fix<CR>
+nnoremap <Leader>t :action Javascript.Linters.EsLint.Fix<CR>
 " 格式化代码
-nnoremap <leader>T :action ReformatCode<CR>
+nnoremap <Leader>T :action ReformatCode<CR>
 
 " 展示文件路径 可以快速打 Finder 中打开
 nnoremap <Leader>F :action ShowFilePath<CR>
@@ -206,16 +206,29 @@ nnoremap <Leader>F :action ShowFilePath<CR>
 nnoremap <Leader>b :action ToggleLineBreakpoint<CR>
 
 " Ace jump
-nnoremap <leader>f :action AceAction <CR>
+nnoremap <Leader>f :action AceAction <CR>
 
 " 聚焦项目栏
 nnoremap <Leader>\ :action SelectInProjectView<CR>
 
+" 显示隐藏 Todo List
+nnoremap <Leader>A :action ActivateTODOToolWindow<CR>
+
 " 显示隐藏 Git Panel
 nnoremap <Leader>g :action ActivateVersionControlToolWindow<CR>
 
+" 隐藏激活面板
+nnoremap <Leader>z :action HideActiveWindow<CR>
+
 " 应用建议
 nnoremap <Leader>s :action ShowIntentionActions<CR>
+
+" 数字加减
+nnoremap <Leader>- <C-x>
+nnoremap <Leader>= <C-a>
+
+" 主题列表
+nnoremap <Leader>1 :action ChangeLaf<CR>
 
 " Reload .ideavimrc
 nnoremap <Leader>S :source ~/.ideavimrc<CR>
